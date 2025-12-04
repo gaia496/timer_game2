@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just Time Survivor - 分割版</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="title-screen" class="screen">
+            <h1>⏱️ Just Time Survivor</h1>
+            <p class="sub-title">正確な時間でストップして生き残れ！</p>
+            
+            <div class="menu-section">
+                <h3>通常モード (5回耐久)</h3>
+                <div class="difficulty-buttons">
+                    <button class="mode-btn easy" onclick="startGame('normal', 0.7)">
+                        イージー<br><span>0.7秒</span>
+                    </button>
+                    <button class="mode-btn normal" onclick="startGame('normal', 0.5)">
+                        ノーマル<br><span>0.5秒</span>
+                    </button>
+                    <button class="mode-btn hard" onclick="startGame('normal', 0.3)">
+                        ハード<br><span>0.3秒</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="menu-section">
+                <h3>エンドレスモード</h3>
+                <button class="mode-btn endless" onclick="startGame('endless', 1.0)">
+                    エンドレス挑戦<br><span>限界まで (自己ベスト: <span id="title-high-score">0</span>回)</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="game-screen" class="screen hidden">
+            <div class="top-nav">
+                <button class="quit-btn" onclick="confirmQuit()">🏠 タイトルへ戻る</button>
+            </div>
+
+            <div class="game-header">
+                <div class="life-box">
+                    <p>持ち時間</p>
+                    <div id="life-display" class="life-value">1.000</div>
+                </div>
+                <div class="info-box">
+                    <div id="mode-display">Mode</div>
+                    <div id="highscore-display" class="hidden">Best: 0</div> 
+                    <div id="turn-display">1 / 5</div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="game-area">
+                <p class="instruction">目標: <span id="target-time">0.000</span> 秒</p>
+                <p id="timer">0.000</p>
+                
+                <button id="action-btn" class="action-btn">計測スタート</button>
+                
+                <div id="turn-result" class="hidden">
+                    <p>誤差: <span id="diff-value" class="bad">0.000</span> 秒</p>
+                    <p class="mini-text">持ち時間が <span id="lost-value">0.000</span> 減りました</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="result-screen" class="screen hidden">
+            <h2 id="result-title">結果タイトル</h2>
+            <p id="result-message">メッセージ</p>
+            
+            <div class="score-box">
+                <p id="final-score" class="score-text"></p>
+                <p id="new-record-msg" class="hidden">✨ NEW RECORD! ✨</p>
+            </div>
+
+            <button class="retry-btn" onclick="backToTitle()">タイトルへ戻る</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
