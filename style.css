@@ -1,0 +1,162 @@
+/* ====================================
+   CSS: スタイルシート
+==================================== */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #2b2d42;
+    color: #edf2f4;
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+}
+
+.container {
+    max-width: 480px;
+    margin: 0 auto;
+    background-color: #8d99ae;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* 画面切り替え用クラス */
+.screen { display: block; }
+.hidden { display: none !important; }
+
+h1 { font-size: 1.8em; margin: 10px 0; color: #fff; }
+.sub-title { font-size: 0.9em; margin-bottom: 20px; color: #dfe6e9; }
+
+h3 { margin: 15px 0 5px 0; font-size: 1em; color: #edf2f4; opacity: 0.9; }
+
+/* ボタン類 */
+button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    transition: transform 0.1s, opacity 0.2s;
+}
+button:active { transform: scale(0.98); }
+
+/* 難易度ボタンのレイアウト */
+.difficulty-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.mode-btn {
+    padding: 12px;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    flex: 1;
+}
+.mode-btn span { font-size: 0.8em; opacity: 0.8; font-weight: normal; }
+
+/* 各モードの色 */
+.mode-btn.easy { background-color: #2ecc71; }
+.mode-btn.normal { background-color: #f1c40f; color: #333; }
+.mode-btn.hard { background-color: #e74c3c; }
+.mode-btn.endless { width: 100%; background-color: #9b59b6; margin-top: 5px; }
+
+/* ゲーム画面ナビゲーション */
+.top-nav {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+}
+
+.quit-btn {
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 5px 12px;
+    font-size: 0.85em;
+}
+
+.quit-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: #fff;
+}
+
+/* ゲーム画面ヘッダー */
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0,0,0,0.2);
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+.life-value {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #70e000;
+}
+.life-value.danger { color: #d90429; }
+
+.info-box { text-align: right; }
+#highscore-display { color: #ffd60a; font-size: 0.9em; font-weight: bold; }
+
+/* タイマー・ゲームエリア */
+#timer {
+    font-size: 3.5em;
+    font-family: monospace;
+    margin: 15px 0;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+#target-time { color: #ffd60a; font-weight: bold; font-size: 1.3em; }
+
+.action-btn {
+    width: 90%;
+    padding: 18px;
+    font-size: 1.4em;
+    font-weight: bold;
+    background-color: #3a86ff;
+    color: white;
+    margin-bottom: 15px;
+}
+.action-btn.stop { background-color: #fb5607; }
+.action-btn.next { background-color: #8338ec; }
+
+#turn-result {
+    background-color: rgba(255,255,255,0.1);
+    padding: 10px;
+    border-radius: 5px;
+}
+.bad { color: #ef233c; font-weight: bold; }
+
+/* リザルト画面 */
+.score-box {
+    background-color: rgba(0,0,0,0.2);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+.score-text { font-size: 1.5em; font-weight: bold; color: #ffd60a; margin: 0; }
+#new-record-msg {
+    color: #ff9f43;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-top: 10px;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.retry-btn {
+    background-color: #34495e;
+    color: #fff;
+    padding: 15px 40px;
+    font-size: 1.1em;
+}
